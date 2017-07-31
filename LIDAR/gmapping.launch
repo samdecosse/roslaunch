@@ -1,0 +1,16 @@
+<!--
+Example launch file: launches the scan matcher with pre-recorded data
+-->
+
+<launch>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
+    args="0.0 0.0 0.0 0.0 0.0 0.0 /base_link /laser 10" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping_thing" output="screen" >
+  <param name="map_update_interval" value="1.5"/>
+  <param name="linearUpdate" value="0.1"/>
+  <param name="angularUpdate" value="0.1"/>
+  </node>
+
+</launch>

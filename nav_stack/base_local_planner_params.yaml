@@ -1,0 +1,22 @@
+TrajectoryPlannerROS:
+  max_vel_x: 0.6
+  min_vel_x: 0.2
+  min_vel_theta: 0.2
+  max_vel_theta: 1.0
+  min_in_place_vel_theta: 0.2
+  max_rotational_vel: 0.3
+  escape_vel: -0.2
+  acc_lim_theta: 3.2
+  acc_lim_x: 2.5
+  acc_lim_y: 2.5
+  yaw_goal_tolerance: 0.05
+  xy_goal_tolerance: 0.05 
+  sim_time: 1.0
+  sim_granularity: 0.01
+  vtheta_samples: 30
+  controller_frequency: 30
+  dwa: true
+  global_frame_id: /odom
+  oscillation_reset_dist: 0.05
+  prune_plan: true
+  holonomic_robot: true

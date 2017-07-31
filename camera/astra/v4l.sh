@@ -1,0 +1,1 @@
+v4l2-ctl --set-ctrl=hue=-400 
