@@ -1,5 +1,8 @@
 <launch>
 
+<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
+    args="0.0 0.0 1.0 0.0 0.0 0.0 /base_link /laser 10" />
+
       <node pkg="nodelet" type="nodelet" name="obstacles_detection" args="load rtabmap_ros/obstacles_detection stereo_nodelet">
          <remap from="cloud" to="cloud_map"/>
          <param name="frame_id" type="string" value="base_link"/>
