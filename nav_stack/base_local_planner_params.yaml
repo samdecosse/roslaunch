@@ -1,22 +1,26 @@
-TrajectoryPlannerROS:
-  max_vel_x: 0.6
-  min_vel_x: 0.2
-  min_vel_theta: 0.2
-  max_vel_theta: 1.0
-  min_in_place_vel_theta: 0.2
-  max_rotational_vel: 0.3
-  escape_vel: -0.2
-  acc_lim_theta: 3.2
-  acc_lim_x: 2.5
-  acc_lim_y: 2.5
-  yaw_goal_tolerance: 0.05
-  xy_goal_tolerance: 0.05 
-  sim_time: 1.0
-  sim_granularity: 0.01
-  vtheta_samples: 30
-  controller_frequency: 30
+DWALocalPlannerROS:
+  acc_lim_th: 0.01
+  acc_lim_x: 0.01
+  acc_lim_y: 0.01
+  max_vel_x: 0.21
+  min_vel_x: 0.0 
+  max_vel_y: 0.21
+  min_vel_y: 0.0 
+  max_trans_vel: 0.21
+  min_trans_vel: 0.1 
+  max_rot_vel: 1.0 
+  min_rot_vel: 0.8 
+  yaw_goal_tolerance: 0.1
+  xy_goal_tolerance: 0.1
+  sim_time: 1.7
+  sim_granularity: 0.025
+  vx_samples: 10
+  vy_samples: 0
+  vtheta_samples: 20
+  controller_frequency: 20.0
   dwa: true
   global_frame_id: /odom
   oscillation_reset_dist: 0.05
   prune_plan: true
-  holonomic_robot: true
+  holonomic_robot: false
+  meter_scoring: true

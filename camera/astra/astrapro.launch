@@ -44,7 +44,7 @@
   <arg name="rgb_processing"                  default="false"  />
   <arg name="debayer_processing"              default="false" />
   <arg name="ir_processing"                   default="false" />
-  <arg name="depth_processing"                default="false" />
+  <arg name="depth_processing"                default="true" />
   <arg name="depth_registered_processing"     default="true" />
   <arg name="disparity_processing"            default="false" />
   <arg name="disparity_registered_processing" default="false" />
@@ -117,10 +117,20 @@
 
   </group> <!-- camera -->
 
-  <!-- Load reasonable defaults for the relative pose between cameras -->
+  <!-- Load reasonable defaults for the relative pose between cameras 
   <include if="$(arg publish_tf)"
 	   file="./launch_astra/astra_frames.launch">
     <arg name="camera" value="$(arg camera)" />
   </include>
+-->
+
+<node pkg="nodelet" type="nodelet" name="depth_to_point_cloud" args="standalone rtabmap_ros/point_cloud_xyz">
+         <remap from="depth/image" to="/camera/depth_registered/image_raw"/>
+<remap from="depth/camera_info" to="/camera/depth_registered/camera_info"/>
+       <param name="min_depth" type="double" value="0.6"/>
+<param name="max_depth" type="double" value="4.0"/>
+<param name="decimation" type="int" value="8"/>
+</node>
+
 
 </launch>
